@@ -124,6 +124,7 @@ const Main = {
         usersHolder.removeChild(usersHolder.lastChild);
       }
       scrollMax = SCROLL_RANGE;
+      document.querySelector('.c-users').scrollTop = 0;
     }
 
     /*
