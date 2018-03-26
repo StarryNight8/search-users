@@ -36,7 +36,7 @@ const Main = {
     /*
      * Display users in a list
      */
-    const displayUsers = (usersToDisplay, loadMore) => {
+    function displayUsers (usersToDisplay, loadMore) {
       console.time('test - display users');
 
       let users = '';
@@ -63,19 +63,19 @@ const Main = {
       numUsersDisplayed += amountToLoad;
 
       console.timeEnd('test - display users');
-    };
+    }
 
     /*
      * Create a user
      */
-    const createUser = userToDisplay => {
+    function createUser (userToDisplay) {
       let user = {
         name: userToDisplay.name,
         avatarUrl: userToDisplay.avatarUrl,
       };
 
       return user;
-    };
+    }
 
     // overlook user typing
     document
