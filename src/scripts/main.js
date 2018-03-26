@@ -15,6 +15,24 @@ const Main = {
     loadUsersList();
 
     /*
+     * Display more users on scroll
+     */
+    document.querySelector('.c-users').addEventListener('scroll', function(e) {
+
+      if (this.scrollTop > scrollMax) {
+        scrollMax += SCROLL_RANGE;
+        displayUsers(users, true);
+      }
+    });
+
+    /*
+     * Watch input field change
+     */
+    document
+      .querySelector('#search-txt')
+      .addEventListener('input', filterUsers);
+
+    /*
      * Load users list
      */
     function loadUsersList() {
@@ -66,44 +84,32 @@ const Main = {
     }
 
     /*
-     * Create a user
+     * Filter users according to entered value
      */
-    function createUser (userToDisplay) {
-      let user = {
-        name: userToDisplay.name,
-        avatarUrl: userToDisplay.avatarUrl,
-      };
-
-      return user;
-    }
-
-    // overlook user typing
-    document
-      .querySelector('#search-txt')
-      .addEventListener('input', onKeyStrokeEntered);
-
-    function onKeyStrokeEntered() {
+    function filterUsers() {
       let inputValue = this.value;
 
       if (inputValue !== '') {
 
         clearUsersHolder();
 
-        console.time('test - search and display users');
+        console.time('test - filter users');
 
         let usersToDisplay = [];
+
+        users = originalUsers;
 
         // find user names (from initial list) that start with entered keystroke
         for (let g = 0; g < users.length; g++) {
           if (users[g].name.toLowerCase().startsWith(inputValue)) {
-            // sort matching users and put them in array
-            usersToDisplay.push(createUser(users[g]));
+            // find matching users and put them in array
+            usersToDisplay.push(users[g]);
           }
         }
         users = usersToDisplay;
         displayUsers(users, false);
 
-        console.timeEnd('test - search and display users');
+        console.timeEnd('test - filter users');
 
       } else {
 
@@ -126,17 +132,6 @@ const Main = {
       scrollMax = SCROLL_RANGE;
       document.querySelector('.c-users').scrollTop = 0;
     }
-
-    /*
-     * Display more users on scroll
-     */
-    document.querySelector('.c-users').addEventListener('scroll', function(e) {
-
-      if (this.scrollTop > scrollMax) {
-        scrollMax += SCROLL_RANGE;
-        displayUsers(users, true);
-      }
-    });
   }
 };
 module.exports = Main;
