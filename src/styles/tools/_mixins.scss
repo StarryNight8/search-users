@@ -1,0 +1,245 @@
+// Mixins
+@mixin hidden-visually() {
+	border: 0 !important;
+	clip: rect(0 0 0 0) !important;
+	clip-path: inset(50%) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	white-space: nowrap !important;
+	width: 1px !important;
+}
+
+@mixin clearfix() {
+	&:after {
+		content: '' !important;
+		display: block !important;
+		clear: both !important;
+	}
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	display: -webkit-flex;
+	
+	-webkit-flex-flow: wrap;
+	-moz-flex-flow: wrap;
+	-ms-flex-flow: wrap;
+	flex-flow: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+}
+
+@mixin flexalign($align){
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+  justify-content: $align;
+  -webkit-justify-content: $align;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+// Convert pixels to ems
+// eg. for a relational value of 12px write em(12) when the parent is 16px
+// if the parent is another value say 24px write em(12, 24)
+
+$em-base: 16px !default;
+
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
+// Convert pixels to rems
+// eg. for a relational value of 12px write rem(12)
+// Assumes $em-base is the font-size of <html>
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $em-base;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1rem;
+}
+
+/// Strips the unit from a number.
+///
+/// @param {Number (With Unit)} $value
+///
+/// @example scss - Usage
+///   $dimension: strip-units(10em);
+///
+/// @example css - CSS Output
+///   $dimension: 10;
+///
+/// @return {Number (Unitless)}
+
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+@mixin retina-bg($filename, $color, $x, $y, $background-size: null, $extension: png, $retina-filename: null, $asset-pipeline: false) {
+  
+  background: $color url("#{$filename}.#{$extension}") $x $y no-repeat;
+  
+  @include hidpi {
+    @if $retina-filename {
+      background-image: url("#{$retina-filename}.#{$extension}");
+    }
+    @else {
+      background-image: url("#{$filename}@2x.#{$extension}");
+    }
+    @if $background-size {
+    	background-size: $background-size;
+    }
+  }  
+}
+
+%absolute-left-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: '';
+}
+
+%absolute-right-top {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: '';
+}
+
+%absolute-left-bottom {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+}
+
+%absolute-right-bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	content: '';
+}
+
+@media screen and (min-width: $bp-tablet) {
+	%absolute-left-top-t {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-top-t {
+		position: absolute;
+		top: 0;
+		right: 0;
+		content: '';
+	}
+	
+	%absolute-left-bottom-t {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-bottom-t {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		content: '';
+	}
+}
+
+@media screen and (min-width: $bp-desktop) {
+	%absolute-left-top-d {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-top-d {
+		position: absolute;
+		top: 0;
+		right: 0;
+		content: '';
+	}
+	
+	%absolute-left-bottom-d {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-bottom-d {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		content: '';
+	}
+}
+
+@media screen and (min-width: $bp-max) {
+	%absolute-left-top-m {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-top-m {
+		position: absolute;
+		top: 0;
+		right: 0;
+		content: '';
+	}
+	
+	%absolute-left-bottom-m {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		content: '';
+	}
+	
+	%absolute-right-bottom-m {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		content: '';
+	}
+}
+
+@mixin placeholder {
+
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}

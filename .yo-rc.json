@@ -1,0 +1,17 @@
+{
+  "generator-chisel": {
+    "config": {
+      "name": "Search Users",
+      "author": "Kate",
+      "projectType": "fe",
+      "nameSlug": "search-users",
+      "nameCamel": "SearchUsers",
+      "chiselVersion": "0.11.0",
+      "has_jquery": true,
+      "has_jquery_vendor_config": false
+    },
+    "pages": [
+      "Home"
+    ]
+  }
+}

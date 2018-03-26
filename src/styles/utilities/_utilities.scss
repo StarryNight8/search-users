@@ -1,0 +1,129 @@
+/* ==========================================================================
+	#CLEARFIX
+	========================================================================== */
+
+/**
+* Attach our clearfix mixin to a utility class.
+*/
+
+.u-clearfix {
+	@include clearfix();
+}
+
+
+/* ==========================================================================
+	#HIDE
+	========================================================================== */
+
+/**
+* Hide only visually, but have it available for screen readers:
+* http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
+
+.u-hidden-visually {
+	@include hidden-visually();
+}
+
+/**
+* Hide visually and from screen readers.
+*/
+
+.u-hidden {
+	display: none !important;
+}
+
+.u-hidden\@small {
+	display: none;
+
+	@include bp-tablet {
+		display: block;
+	}
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+  white-space: nowrap;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+
+/* ==========================================================================
+	#ALIGN
+	========================================================================== */
+
+.u-float-left {
+	float: left;
+}
+
+.u-float-right {
+	float: right;
+}
+
+.u-clear {
+	clear: both;
+}
+
+.u-text-center {
+	text-align: center;
+}
+
+.u-text-left {
+	text-align: left;
+}
+
+.u-text-right {
+	text-align: right;
+}
+
+/* ==========================================================================
+	#COLOR
+	========================================================================== */
+
+.u-fill {
+	background: $color-fill;
+}
+
+/* ==========================================================================
+	#IMAGES
+	========================================================================== */
+
+/* Image Replacement */
+.u-image-replace {
+	display: block;
+	position: relative;
+	overflow: hidden;
+
+	span {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+	}
+}

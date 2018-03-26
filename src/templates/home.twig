@@ -1,0 +1,28 @@
+{% extends "layouts/base.twig" %}
+{% set pageName = 'Home' %}
+{% set body_class = 'page-home' %}
+
+{% block content %}
+
+	<section class="c-bot">
+
+		<div class="o-holder">
+
+			<form class="c-form" action="#">
+				<label for="search-txt" class="u-hidden-visually">Search</label>
+				<input id="search-txt" class="search-txt" type="text" name="search-txt" value="" placeholder="Search" />
+			</form>
+			<!-- c-form -->
+
+			<ul class="c-users">
+
+			</ul>
+			<!-- c-users -->
+
+		</div>
+		<!-- o-holder -->
+
+	</section>
+	<!-- c-bot -->
+
+{% endblock %}

@@ -1,0 +1,76 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+$radius: 3px !default;
+$transition: all 200ms ease !default;
+
+
+/* Fonts
+	========================================================================== */
+
+$font-sans-serif: 'RalewayRegular', 'Helvetica', 'Arial', sans-serif;
+$font-sans-serif-italic: 'RalewayRegularIt', 'Helvetica', 'Arial', sans-serif;
+$font-sans-serif-light: 'RalewayLight', 'Helvetica', 'Arial', sans-serif;
+$font-sans-serif-bold: 'RalewayBold', 'Helvetica', 'Arial', sans-serif;
+
+
+/* Font sizes
+	========================================================================== */
+$font-size-base: 20;
+$font-size-base-per: 125%;
+$line-height-base: 32;
+
+
+/* Breakpoints
+	========================================================================== */
+
+$bp-mobile: 480px;
+$bp-mobile-landscape: 600px;
+$bp-tablet: 768px;
+$bp-desktop: 1240px;
+$bp-desktop-large: 1260px;
+$bp-max: 1260px;
+
+
+/* Colors
+	========================================================================== */
+
+// Colors shouldn't be used directly but reassigned
+$color-white: #fff;
+$color-black: #000;
+
+$color-light-grey-2: #eee;
+$color-light-grey: #ccc;
+$color-medium-grey: #666;
+$color-grey: #4B5D73;
+$color-dark-grey: #273F5B;
+
+$color-light-blue-2: #ECF5FE;
+$color-light-blue: #839DBC;
+$color-blue: #0083FF;
+$color-dark-blue: #273F5B;
+
+
+// Text
+$color-bg: $color-white;
+$color-text: $color-medium-grey;
+
+
+// Links
+$color-link: $color-blue;
+$color-link-hover: $color-dark-blue;
+
+$color-btn: $color-blue;
+$color-btn-hover: $color-dark-blue;
+
+// Borders
+$color-border: $color-light-grey;
+
+// Fills
+$color-fill: $color-light-grey;
+
+// Inputs
+$color-placeholder: $color-medium-grey;

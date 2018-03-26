@@ -1,0 +1,312 @@
+/* ==========================================================================
+	#FONTS
+	========================================================================== */
+
+@font-face {
+  font-family: 'MontserratRegular';
+  src: url('../assets/fonts/montserrat/montserrat-regular-webfont.woff2') format('woff2'),
+       url('../assets/fonts/montserrat/montserrat-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Icomoon';
+  src:  url('../assets/fonts/icomoon/icomoon.eot?ivlw46');
+  src:  url('../assets/fonts/icomoon/icomoon.eot?ivlw46#iefix') format('embedded-opentype'),
+    url('../assets/fonts/icomoon/icomoon.ttf?ivlw46') format('truetype'),
+    url('../assets/fonts/icomoon/icomoon.woff?ivlw46') format('woff'),
+    url('../assets/fonts/icomoon/icomoon.svg?ivlw46#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'Icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+	font-family: 'Icomoon';
+	position: relative;
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: 0.2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: 0.2em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before { content: '\e001'; }
+
+.icon-down:before { content: '\e002'; }
+.icon-up:before { content: '\e003'; }
+
+.icon-left:before { content: '\e004'; }
+.icon-right:before { content: '\e005'; }
+
+.icon-gplus:before { content: '\e006'; }
+.icon-ln:before { content: '\e007'; }
+.icon-fb:before { content: '\e008'; }
+.icon-tw:before { content: '\e009'; }
+.icon-insta:before { content: '\e010'; }
+.icon-pin:before { content: '\e011'; }
+.icon-yt:before { content: "\e012"; }
+.icon-mail:before { content: "\e013"; }
+
+
+/* ==========================================================================
+	#PAGE
+	========================================================================== */
+
+/**
+* Simple page-level setup.
+*
+* 1. Set the default `font-size` and `line-height` for the entire project.
+* 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+*    navigating between pages that do/do not have enough content to produce
+*    scrollbars naturally.
+* 3. Ensure the page always fills at least the entire height of the viewport.
+*/
+
+html {
+	font-size: 16px;
+}
+
+body {
+	font-size: $font-size-base-per;
+	line-height: em($line-height-base, $font-size-base);
+	font-family: $font-sans-serif;
+	background: $color-bg;
+	color: $color-text;
+}
+
+
+/* ==========================================================================
+	#HEADINGS
+	========================================================================== */
+
+h1 {
+	font-size: 2.25rem;
+}
+
+h2 {
+	font-size: 1.75rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
+}
+
+h5 {
+	font-size: 1.125rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+p {
+	margin-bottom: rem($line-height-base);
+}
+
+
+/* ==========================================================================
+	#HR
+	========================================================================== */
+
+hr {
+	display: block;
+}
+
+/**
+* Shared declarations for certain elements.
+*/
+.page-default {
+	address,
+	h1, h2, h3, h4, h5, h6,
+	blockquote, p, pre,
+	dl, ol, ul,
+	figure,
+	hr,
+	table,
+	fieldset {
+		margin-bottom: 1.3rem;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $color-medium-grey;
+}
+
+em, it {
+	font-family: $font-sans-serif-italic;
+}
+
+strong {
+	font-family: $font-sans-serif-bold;
+}
+
+
+/* ==========================================================================
+	#LISTS
+	========================================================================== */
+
+li {
+
+	> ul,
+	> ol {
+		margin-bottom: 0;
+		margin-left: 1rem;
+		margin-top: 0.5rem;
+	}
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+}
+
+
+/* ==========================================================================
+	#IMAGES
+	========================================================================== */
+
+/**
+* 1. Fluid images for responsive purposes.
+* 2. Offset `alt` text from surrounding copy.
+* 3. Setting `vertical-align` removes the whitespace that appears under `img`
+*    elements when they are dropped into a page as-is. Safer alternative to
+*    using `display: block;`.
+*/
+
+img {
+	font-style: italic; /* [2] */
+	max-width: 100%; /* [1] */
+	vertical-align: middle; /* [3] */
+}
+
+
+/* ==========================================================================
+	#LINKS
+	========================================================================== */
+
+a {
+	text-decoration: underline;
+	transition: $transition;
+	color: $color-link;
+
+
+	&:hover {
+		color: $color-link-hover;
+	}
+}
+
+
+/* ==========================================================================
+	#PLACEHOLDERS
+	========================================================================== */
+
+::-webkit-input-placeholder {
+	color: $color-placeholder;
+}
+
+:-moz-placeholder {
+	color: $color-placeholder;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: $color-placeholder;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: $color-placeholder;
+}
+
+
+/* ==========================================================================
+	#Custom select
+	========================================================================== */
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  // background: $color-white url('../assets/images/ui/ui_arrow_down.png') right 5px no-repeat;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+/* ==========================================================================
+	#BLOCKQUOTES
+	========================================================================== */
+
+blockquote {
+	quotes: '“' '”' '‘' '’';
+	font-style: italic;
+
+	p:first-child {
+		&:before {
+			content: open-quote;
+		}
+	}
+
+	p:last-child {
+		&:after {
+			content: close-quote;
+		}
+	}
+}
+
+
+/* ==========================================================================
+	#TABLES
+	========================================================================== */
+
+/**
+* 1. Ensure tables fill up as much space as possible.
+*/
+
+table {
+	width: 100%; /* [1] */
+}
+
+/* ==========================================================================
+	#FORMS
+	========================================================================== */
+
+input,
+button,
+textarea {
+	-webkit-appearance: none;
+	outline: none;
+}

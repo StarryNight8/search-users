@@ -1,0 +1,45 @@
+/* ==========================================================================
+	#LAYOUT
+	========================================================================== */
+
+.o-halves {
+	display: flex; /* define flex container */
+	flex-wrap: wrap; /* wrap flex items to the next line */
+	justify-content: flex-start;
+}
+
+.o-halves__half {
+	width: 100%;
+}
+
+@media screen and (min-width: $bp-tablet) {
+	.o-halves__half {
+		width: 48.7%;
+		max-width: 570px;
+	}
+}
+// tablet
+
+.o-thirds {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.o-thirds__third {
+	width: 100%;
+}
+
+@media screen and (min-width: $bp-tablet) {
+	.o-thirds__third {
+		width: 48%;
+	}
+}
+
+@media screen and (min-width: $bp-desktop) {
+	.o-thirds__third {
+		width: 31.7%;
+		max-width: 370px;
+	}
+}
+// desktop

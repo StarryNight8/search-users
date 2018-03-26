@@ -1,0 +1,23 @@
+/* ==========================================================================
+	#PRINT
+	========================================================================== */
+
+@media print {
+
+	body {
+		font: normal normal 12pt/1.5em "Times New Roman", Times, serif;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ") ";
+		font-size: 90%;
+	}
+
+	a[href^="/"]:after {
+		content: " (http://domain.com" attr(href) ") ";
+	}
+
+	.hide {
+		display: none !important;
+	}
+}
